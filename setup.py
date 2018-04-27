@@ -1,3 +1,20 @@
+# @copyright: 2016. All rights reserved.
+
+from setuptools import setup
+
+try:
+    from pypandoc import convert_file
+    long_description = convert_file('README.md', 'md')
+
+except ImportError:
+    long_description = """
+    
+    Indian Pincodes and related Information
+    
+    
+    More information at: https://github.com/rajacsp/pypinindia.
+"""
+
 setup(name='pypinindia',
       description='Indian Pincodes and related Information',
       long_description=long_description,
@@ -18,7 +35,7 @@ setup(name='pypinindia',
       ],
       entry_points={
           'console_scripts': [
-              'encrypt=pypinindia.main:run'
+              'encrypt=pinin.main:run'
           ]
       }
 )
