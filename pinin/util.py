@@ -13,10 +13,10 @@ Source:
     
 '''
 
-def main():
-    #print(get_state(62501))
-    pass
+def get_state(pin):
+    
+    if(pin == 625015):
+        return 'Tamilnadu'
 
+    return 'Not Found'
 
-if __name__ == '__main__':
-    main()

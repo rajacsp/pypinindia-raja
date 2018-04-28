@@ -14,7 +14,6 @@ Source:
 '''
 
 def main():
-    #print(get_state(62501))
     pass
 
 

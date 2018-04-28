@@ -18,7 +18,7 @@ except ImportError:
 setup(name='pypinindia',
       description='Indian Pincodes and related Information',
       long_description=long_description,
-      version='0.1.0',
+      version='0.1.1',
       url='https://github.com/rajacsp/pypinindia',
       author='Raja CSP Raman',
       author_email='raja.csp@gmail.com',
@@ -29,9 +29,9 @@ setup(name='pypinindia',
           'License :: OSI Approved :: Apache Software License',
           'Programming Language :: Python :: 3'
       ],
-      packages=['pypinindia'],
+      packages=['pinin'],
       install_requires=[          
-          'pypandoc=>1.4'
+          'pypandoc>=1.4'
       ],
       entry_points={
           'console_scripts': [
