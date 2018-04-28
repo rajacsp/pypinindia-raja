@@ -18,7 +18,7 @@ except ImportError:
 setup(name='pypinindia',
       description='Indian Pincodes and related Information',
       long_description=long_description,
-      version='0.1.1',
+      version='0.1.2',
       url='https://github.com/rajacsp/pypinindia',
       author='Raja CSP Raman',
       author_email='raja.csp@gmail.com',
