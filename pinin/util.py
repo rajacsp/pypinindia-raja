@@ -20,3 +20,11 @@ def get_state(pin):
 
     return 'Not Found'
 
+def get_location(pin):
+    if(pin == 625513):
+        return 'Bodi'
+    
+    if(pin == 625015):
+        return 'TCE'
+
+    return 'Not Found'
