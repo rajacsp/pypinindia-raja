@@ -1,17 +1,62 @@
-# @copyright: AlertAvert.com (c) 2015. All rights reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+"""
+pypinindia - Indian Pincodes and related Information
 
+A modern Python library for Indian pincode lookup and geographical information.
 
-__author__ = 'Raja CSP'
-__email__ = 'raja.csp@gmail.com'
+This library provides comprehensive pincode data lookup functionality for:
+- State, district, and taluk information
+- Office names and types
+- Delivery status information
+- Search and filtering capabilities
+
+Usage:
+    from pinin import get_pincode_info, get_state, PincodeData
+    
+    # Quick pincode lookup
+    info = get_pincode_info("110001")
+    state = get_state("110001")
+    
+    # Using PincodeData class
+    pincode_data = PincodeData()
+    district = pincode_data.get_district("110001")
+"""
+
+from .core import (
+    PincodeData,
+    get_pincode_info,
+    get_state,
+    get_district,
+    get_taluk,
+    get_offices,
+    search_by_state,
+    search_by_district,
+    get_states,
+    get_districts,
+)
+from .exceptions import (
+    PininError,
+    InvalidPincodeError,
+    DataNotFoundError,
+    DataLoadError,
+)
+
+__version__ = "0.1.4"
+__author__ = "Raja CSP Raman"
+__email__ = "raja.csp@gmail.com"
+
+__all__ = [
+    "PincodeData",
+    "get_pincode_info",
+    "get_state",
+    "get_district",
+    "get_taluk",
+    "get_offices",
+    "search_by_state",
+    "search_by_district",
+    "get_states",
+    "get_districts",
+    "PininError",
+    "InvalidPincodeError",
+    "DataNotFoundError",
+    "DataLoadError",
+]

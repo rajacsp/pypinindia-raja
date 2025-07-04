@@ -1,30 +1,60 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# the above line is to avoid 'SyntaxError: Non-UTF-8 code starting with' error
+#!/usr/bin/env python3
+"""
+Legacy utility module for backward compatibility.
 
-'''
-Created on Apr 27, 2018
+This module provides backward compatibility with the old pypinindia API
+while redirecting to the new modern implementation.
+"""
 
-Course work: 
+import warnings
+from .core import get_state as new_get_state, get_district as new_get_district
 
-@author: raja
 
-Source:
+def get_state(pin: str) -> str:
+    """
+    Legacy function for backward compatibility.
     
-'''
-
-def get_state(pin):
+    Args:
+        pin: The pincode to lookup
+        
+    Returns:
+        State name or 'Not Found' if not found
+        
+    Note:
+        This function is deprecated. Use pinin.get_state() instead.
+    """
+    warnings.warn(
+        "pinin.util.get_state() is deprecated. Use pinin.get_state() instead.",
+        DeprecationWarning,
+        stacklevel=2
+    )
     
-    if(pin == 625015):
-        return 'Tamilnadu'
+    try:
+        return new_get_state(pin)
+    except Exception:
+        return 'Not Found'
 
-    return 'Not Found'
 
-def get_location(pin):
-    if(pin == 625513):
-        return 'Bodi'
+def get_location(pin: str) -> str:
+    """
+    Legacy function for backward compatibility.
     
-    if(pin == 625015):
-        return 'TCE'
-
-    return 'Not Found'
+    Args:
+        pin: The pincode to lookup
+        
+    Returns:
+        District name or 'Not Found' if not found
+        
+    Note:
+        This function is deprecated. Use pinin.get_district() instead.
+    """
+    warnings.warn(
+        "pinin.util.get_location() is deprecated. Use pinin.get_district() instead.",
+        DeprecationWarning,
+        stacklevel=2
+    )
+    
+    try:
+        return new_get_district(pin)
+    except Exception:
+        return 'Not Found'
