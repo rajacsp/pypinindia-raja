@@ -42,9 +42,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/rajacsp/pypinindia"
-Repository = "https://github.com/rajacsp/pypinindia"
-Issues = "https://github.com/rajacsp/pypinindia/issues"
+Homepage = "https://github.com/kactlabs/pypinindia"
+Repository = "https://github.com/kactlabs/pypinindia"
+Issues = "https://github.com/kactlabs/pypinindia/issues"
 
 [project.scripts]
 pypinindia = "pinin.cli:main"

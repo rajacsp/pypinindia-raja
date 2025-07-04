@@ -292,7 +292,7 @@ The library expects CSV data with the following columns:
 ### Setup Development Environment
 
 ```bash
-git clone https://github.com/rajacsp/pypinindia.git
+git clone https://github.com/kactlabs/pypinindia.git
 cd pypinindia
 pip install -e ".[dev]"
 ```
@@ -370,8 +370,8 @@ The pincode data is sourced from India Post and contains comprehensive informati
 
 If you encounter any issues or have questions, please:
 
-1. Check the [documentation](https://github.com/rajacsp/pypinindia)
-2. Search existing [issues](https://github.com/rajacsp/pypinindia/issues)
+1. Check the [documentation](https://github.com/kactlabs/pypinindia)
+2. Search existing [issues](https://github.com/kactlabs/pypinindia/issues)
 3. Create a new issue if needed
 
 For general questions, you can also reach out via email: raja.csp@gmail.com
