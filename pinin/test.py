@@ -13,7 +13,7 @@ Source:
     
 '''
 
-def main():
+def main() -> None:
     pass
 
 

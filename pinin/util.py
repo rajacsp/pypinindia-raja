@@ -10,7 +10,7 @@ import warnings
 from .core import get_state as new_get_state, get_district as new_get_district
 
 
-def get_state(pin):
+def get_state(pin: str) -> str:
     """
     Legacy function for backward compatibility.
     
@@ -35,7 +35,7 @@ def get_state(pin):
         return 'Not Found'
 
 
-def get_location(pin):
+def get_location(pin: str) -> str:
     """
     Legacy function for backward compatibility.
     

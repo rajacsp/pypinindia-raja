@@ -5,7 +5,7 @@ Command-line interface for pypinindia.
 import argparse
 import sys
 import json
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional, Union
 
 from .core import (
     PincodeData, get_pincode_info, get_state, get_district, get_taluk,
@@ -127,7 +127,8 @@ Examples:
             return
         
         if args.list_districts is not None:
-            list_districts(args.list_districts if args.list_districts else None, args.json, args.verbose)
+            state_filter = args.list_districts if args.list_districts else None
+            list_districts(state_filter, args.json, args.verbose)
             return
         
         if args.stats:
@@ -179,38 +180,41 @@ Examples:
         sys.exit(1)
 
 
-def lookup_pincode(pincode: str, args: argparse.Namespace, data_file: str = None) -> None:
+def lookup_pincode(pincode: str, args: argparse.Namespace, data_file: Optional[str] = None) -> None:
     """Lookup information for a specific pincode."""
     try:
         if args.state:
-            result = get_state(pincode) if not data_file else PincodeData(data_file).get_state(pincode)
-            output_result(result, args.json, args.verbose, f"State for {pincode}")
+            state_result = get_state(pincode) if not data_file else PincodeData(data_file).get_state(pincode)
+            output_result(state_result, args.json, args.verbose, f"State for {pincode}")
         
         elif args.district:
-            result = get_district(pincode) if not data_file else PincodeData(data_file).get_district(pincode)
-            output_result(result, args.json, args.verbose, f"District for {pincode}")
+            district_result = get_district(pincode) if not data_file else PincodeData(data_file).get_district(pincode)
+            output_result(district_result, args.json, args.verbose, f"District for {pincode}")
         
         elif args.taluk:
-            result = get_taluk(pincode) if not data_file else PincodeData(data_file).get_taluk(pincode)
-            output_result(result, args.json, args.verbose, f"Taluk for {pincode}")
+            taluk_result = get_taluk(pincode) if not data_file else PincodeData(data_file).get_taluk(pincode)
+            output_result(taluk_result, args.json, args.verbose, f"Taluk for {pincode}")
         
         elif args.offices:
-            result = get_offices(pincode) if not data_file else PincodeData(data_file).get_offices(pincode)
-            output_result(result, args.json, args.verbose, f"Offices for {pincode}")
+            offices_result = get_offices(pincode) if not data_file else PincodeData(data_file).get_offices(pincode)
+            output_result(offices_result, args.json, args.verbose, f"Offices for {pincode}")
         
         else:
             # Default: show complete information
-            result = get_pincode_info(pincode) if not data_file else PincodeData(data_file).get_pincode_info(pincode)
-            output_result(result, args.json, args.verbose, f"Complete information for {pincode}")
+            info_result = get_pincode_info(pincode) if not data_file else PincodeData(data_file).get_pincode_info(pincode)
+            output_result(info_result, args.json, args.verbose, f"Complete information for {pincode}")
     
     except Exception as e:
         raise e
 
 
-def search_state(state_name: str, json_output: bool, verbose: bool, data_file: str = None) -> None:
+def search_state(state_name: str, json_output: bool, verbose: bool, data_file: Optional[str] = None) -> None:
     """Search pincodes by state name."""
     try:
-        result = search_by_state(state_name) if not data_file else PincodeData(data_file).search_by_state(state_name)
+        if not data_file:
+            result = search_by_state(state_name)
+        else:
+            result = PincodeData(data_file).search_by_state(state_name)
         
         if not result:
             print(f"No pincodes found for state: {state_name}")
@@ -222,7 +226,7 @@ def search_state(state_name: str, json_output: bool, verbose: bool, data_file: s
         raise e
 
 
-def search_district(district_name: str, state_name: str, json_output: bool, verbose: bool, data_file: str = None) -> None:
+def search_district(district_name: str, state_name: Optional[str], json_output: bool, verbose: bool, data_file: Optional[str] = None) -> None:
     """Search pincodes by district name."""
     try:
         if not data_file:
@@ -252,7 +256,7 @@ def list_states(json_output: bool, verbose: bool) -> None:
         raise e
 
 
-def list_districts(state_name: str, json_output: bool, verbose: bool) -> None:
+def list_districts(state_name: Optional[str], json_output: bool, verbose: bool) -> None:
     """List all districts, optionally filtered by state."""
     try:
         result = get_districts(state_name)
@@ -268,7 +272,7 @@ def list_districts(state_name: str, json_output: bool, verbose: bool) -> None:
         raise e
 
 
-def show_statistics(json_output: bool, verbose: bool, data_file: str = None) -> None:
+def show_statistics(json_output: bool, verbose: bool, data_file: Optional[str] = None) -> None:
     """Show dataset statistics."""
     try:
         if not data_file:
@@ -283,7 +287,7 @@ def show_statistics(json_output: bool, verbose: bool, data_file: str = None) -> 
         raise e
 
 
-def output_result(result: Any, json_output: bool, verbose: bool, title: str = None) -> None:
+def output_result(result: Any, json_output: bool, verbose: bool, title: Optional[str] = None) -> None:
     """Output result in the specified format."""
     if json_output:
         if title and verbose:

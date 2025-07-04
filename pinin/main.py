@@ -10,7 +10,7 @@ import warnings
 from .core import get_state as new_get_state, get_district as new_get_district
 
 
-def main():
+def main() -> None:
     """Legacy main function - now redirects to CLI."""
     warnings.warn(
         "The main() function is deprecated. Use 'pypinindia' command or import functions directly.",
@@ -22,7 +22,7 @@ def main():
 
 
 # Legacy function for backward compatibility
-def get_state(pincode):
+def get_state(pincode: str) -> str:
     """
     Legacy function for backward compatibility.
     
@@ -47,7 +47,7 @@ def get_state(pincode):
         return 'Not Found'
 
 
-def run():
+def run() -> None:
     """Legacy run function for backward compatibility."""
     warnings.warn(
         "The run() function is deprecated. Use 'pypinindia' command instead.",

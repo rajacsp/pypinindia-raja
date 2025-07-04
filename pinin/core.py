@@ -128,7 +128,7 @@ class PincodeData:
             raise DataNotFoundError(pincode_str)
         
         # Convert to list of dictionaries
-        return filtered_data.to_dict('records')
+        return filtered_data.to_dict('records')  # type: ignore
     
     def get_state(self, pincode: Union[str, int]) -> str:
         """
@@ -145,7 +145,7 @@ class PincodeData:
             DataNotFoundError: If no data found for the pincode
         """
         info = self.get_pincode_info(pincode)
-        return info[0]['statename']
+        return str(info[0]['statename'])
     
     def get_district(self, pincode: Union[str, int]) -> str:
         """
@@ -162,7 +162,7 @@ class PincodeData:
             DataNotFoundError: If no data found for the pincode
         """
         info = self.get_pincode_info(pincode)
-        return info[0]['districtname']
+        return str(info[0]['districtname'])
     
     def get_taluk(self, pincode: Union[str, int]) -> str:
         """
@@ -179,7 +179,7 @@ class PincodeData:
             DataNotFoundError: If no data found for the pincode
         """
         info = self.get_pincode_info(pincode)
-        return info[0]['taluk']
+        return str(info[0]['taluk'])
     
     def get_offices(self, pincode: Union[str, int]) -> List[str]:
         """
@@ -262,7 +262,7 @@ class PincodeData:
             self.data['officename'].str.upper().str.contains(office_name.upper(), na=False)
         ]
         
-        return filtered_data.to_dict('records')
+        return filtered_data.to_dict('records')  # type: ignore
     
     def get_states(self) -> List[str]:
         """
