@@ -292,7 +292,7 @@ The library expects CSV data with the following columns:
 ### Setup Development Environment
 
 ```bash
-git clone https://github.com/rajacsp/pypinindia.git
+git clone https://github.com/kactlabs/pypinindia.git
 cd pypinindia
 pip install -e ".[dev]"
 ```
@@ -337,13 +337,13 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## Changelog
 
-### v0.1.4
+### v0.1.6
 - **Complete rewrite with modern Python practices**
 - Added comprehensive API with both functional and OOP interfaces
 - Added full CLI tool with extensive options
 - Added comprehensive test suite with high coverage
 - Added type hints throughout the codebase
-- Added proper exception handling with custom exceptions
+- Added proper exception handling cwith custom exceptions
 - Added search functionality by state, district, and office name
 - Added statistics and data exploration features
 - Added examples and comprehensive documentation
@@ -370,8 +370,8 @@ The pincode data is sourced from India Post and contains comprehensive informati
 
 If you encounter any issues or have questions, please:
 
-1. Check the [documentation](https://github.com/rajacsp/pypinindia)
-2. Search existing [issues](https://github.com/rajacsp/pypinindia/issues)
+1. Check the [documentation](https://github.com/kactlabs/pypinindia)
+2. Search existing [issues](https://github.com/kactlabs/pypinindia/issues)
 3. Create a new issue if needed
 
 For general questions, you can also reach out via email: raja.csp@gmail.com
