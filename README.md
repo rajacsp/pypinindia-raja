@@ -337,13 +337,13 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## Changelog
 
-### v0.1.4
+### v0.1.6
 - **Complete rewrite with modern Python practices**
 - Added comprehensive API with both functional and OOP interfaces
 - Added full CLI tool with extensive options
 - Added comprehensive test suite with high coverage
 - Added type hints throughout the codebase
-- Added proper exception handling with custom exceptions
+- Added proper exception handling cwith custom exceptions
 - Added search functionality by state, district, and office name
 - Added statistics and data exploration features
 - Added examples and comprehensive documentation
